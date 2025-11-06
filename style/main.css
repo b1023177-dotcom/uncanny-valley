@@ -1,31 +1,34 @@
 body {
+  margin: 0;
   background-color: #000;
   color: #e0e0e0;
   font-family: 'Segoe UI', sans-serif;
   overflow-x: hidden;
 }
 
+/* 起動画面 */
 .intro-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  animation: fadeIn 3s ease-out;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: scale(1.1); }
-  100% { opacity: 1; transform: scale(1); }
+  align-items: center;
+  background-color: #000;
+  z-index: 10;
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 3.5s; /* 3.5秒後に消える */
 }
 
 /* グリッチ効果 */
 .glitch {
   position: relative;
   color: #fff;
-  font-size: 3em;
-  letter-spacing: 0.1em;
-  animation: glitch 2s infinite;
+  font-size: 4em;
+  text-transform: none;
+  animation: glitch 1s infinite;
 }
 
 .glitch::before,
@@ -34,8 +37,8 @@ body {
   position: absolute;
   left: 0;
   width: 100%;
-  overflow: hidden;
   color: #0ff;
+  overflow: hidden;
 }
 
 .glitch::before {
@@ -53,7 +56,6 @@ body {
 }
 
 @keyframes glitchTop {
-  0% { clip: rect(0, 9999px, 0, 0); }
   10% { clip: rect(10px, 9999px, 50px, 0); }
   20% { clip: rect(85px, 9999px, 100px, 0); }
   40% { clip: rect(10px, 9999px, 130px, 0); }
@@ -61,16 +63,41 @@ body {
 }
 
 @keyframes glitchBottom {
-  0% { clip: rect(0, 9999px, 0, 0); }
   10% { clip: rect(50px, 9999px, 90px, 0); }
   30% { clip: rect(120px, 9999px, 140px, 0); }
   60% { clip: rect(10px, 9999px, 70px, 0); }
   100% { clip: rect(0, 9999px, 0, 0); }
 }
 
-.subtitle {
-  color: #aaa;
-  font-size: 1.2em;
-  margin-top: 20px;
-  opacity: 0.7;
+/* フェードアウト */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* メインコンテンツ表示 */
+.hidden {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.show {
+  opacity: 1;
+}
+
+/* ギャラリー */
+.gallery {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.item img {
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
 }
