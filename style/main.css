@@ -41,12 +41,12 @@ body {
   position: absolute;
   left: 0;
   width: 100%;
-  color: #0ff;
   overflow: hidden;
 }
 
 .glitch::before {
   left: 2px;
+  color: #0ff;
   text-shadow: -2px 0 red;
   clip: rect(0, 900px, 0, 0);
   animation: glitchTop 1s infinite linear alternate-reverse;
@@ -54,12 +54,13 @@ body {
 
 .glitch::after {
   left: -2px;
+  color: #f0f;
   text-shadow: -2px 0 blue;
   clip: rect(0, 900px, 0, 0);
   animation: glitchBottom 1.2s infinite linear alternate-reverse;
 }
 
-/* サブタイトル（uncannily-funny） */
+/* uncannily-funny */
 .subtitle-english {
   color: #999;
   font-size: 1.4em;
@@ -67,7 +68,7 @@ body {
   margin-top: 1.2em;
   opacity: 0;
   animation: fadeInSubtitle 2s ease forwards;
-  animation-delay: 1s; /* メインタイトルより遅れて出現 */
+  animation-delay: 1s; /* タイトルより遅れて出現 */
 }
 
 @keyframes fadeInSubtitle {
@@ -76,13 +77,30 @@ body {
 }
 
 @keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
+  to { opacity: 0; visibility: hidden; }
 }
 
-/* メインコンテンツ表示 */
+/* グリッチの動き */
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(10px, 9999px, 50px, 0); }
+  20% { clip: rect(85px, 9999px, 140px, 0); }
+  40% { clip: rect(10px, 9999px, 80px, 0); }
+  60% { clip: rect(50px, 9999px, 90px, 0); }
+  80% { clip: rect(120px, 9999px, 170px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+@keyframes glitchBottom {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  15% { clip: rect(60px, 9999px, 100px, 0); }
+  35% { clip: rect(100px, 9999px, 150px, 0); }
+  55% { clip: rect(10px, 9999px, 60px, 0); }
+  75% { clip: rect(90px, 9999px, 120px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+/* メインコンテンツ表示切り替え */
 .hidden {
   opacity: 0;
   transition: opacity 1.5s ease;
@@ -104,4 +122,10 @@ body {
   width: 250px;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+h2 {
+  text-align: center;
+  font-weight: 400;
+  margin-top: 2rem;
 }
