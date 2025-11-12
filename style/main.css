@@ -109,6 +109,20 @@ body {
   100% { clip: rect(0, 9999px, 0, 0); }
 }
 
+/* ナビゲーションのロゴ */
+.nav .logo {
+  font-size: 2rem;   /* 文字サイズを大きく */
+  font-weight: bold; /* 太字に */
+  color: #fff;       /* 白色 */
+  text-shadow: 
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff,
+    0 0 80px #0ff; /* ネオン風の光 */
+}
+
+
 /* メインコンテンツ表示 */
 .hidden {
   opacity: 0;
@@ -182,7 +196,7 @@ h2 {
   background: radial-gradient(circle at 50% 50%, #fff 10%, #222 30%, #000 80%);
   top: 40%;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-  animation: blink 6s infinite ease-in-out;
+  animation: blink 3s infinite ease-in-out;
 }
 
 /* 左右の目の位置 */
