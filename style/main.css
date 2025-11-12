@@ -122,6 +122,36 @@ body {
     0 0 80px #0ff; /* ネオン風の光 */
 }
 
+/* === ナビゲーション === */
+.nav {
+  position: relative;
+  padding: 1rem 2rem;
+  background: transparent; /* 透明でもOK */
+  z-index: 5;
+}
+
+/* 右上に戻るボタンを配置 */
+.nav .back-btn {
+  position: absolute;    /* 絶対配置に */
+  top: 1rem;             /* ナビゲーション内の上からの位置 */
+  right: 1.5rem;         /* 右端からの位置 */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.4); /* 背景少し透過 */
+  transition: 0.3s;
+}
+
+.nav .back-btn:hover {
+  background-color: rgba(0,255,255,0.2); /* ホバー時に色を変える */
+  color: #0ff;
+  box-shadow: 0 0 10px #0ff;
+}
+
 
 /* メインコンテンツ表示 */
 .hidden {
