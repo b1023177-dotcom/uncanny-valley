@@ -109,6 +109,50 @@ body {
   100% { clip: rect(0, 9999px, 0, 0); }
 }
 
+/* ナビゲーションのロゴ */
+.nav .logo {
+  font-size: 2rem;   /* 文字サイズを大きく */
+  font-weight: bold; /* 太字に */
+  color: #fff;       /* 白色 */
+  text-shadow: 
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff,
+    0 0 80px #0ff; /* ネオン風の光 */
+}
+
+/* === ナビゲーション === */
+.nav {
+  position: relative;
+  padding: 1rem 2rem;
+  background: transparent; /* 透明でもOK */
+  z-index: 5;
+}
+
+/* 右上に戻るボタンを配置 */
+.nav .back-btn {
+  position: absolute;    /* 絶対配置に */
+  top: 1rem;             /* ナビゲーション内の上からの位置 */
+  right: 1.5rem;         /* 右端からの位置 */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.4); /* 背景少し透過 */
+  transition: 0.3s;
+}
+
+.nav .back-btn:hover {
+  background-color: rgba(0,255,255,0.2); /* ホバー時に色を変える */
+  color: #0ff;
+  box-shadow: 0 0 10px #0ff;
+}
+
+
 /* メインコンテンツ表示 */
 .hidden {
   opacity: 0;
@@ -116,6 +160,29 @@ body {
 }
 .show {
   opacity: 1;
+}
+
+/* 不気味の谷の紹介ボックス */
+.intro-box {
+  border: 2px solid #fff;       /* 白い四角枠 */
+  padding: 1.5rem 2rem;         /* 内側の余白 */
+  margin: 2rem auto;            /* 上下余白と中央寄せ */
+  max-width: 700px;             /* 横幅制限 */
+  background-color: rgba(0, 0, 0, 0.6); /* 半透明背景で目やノイズと馴染む */
+  border-radius: 12px;          /* 角を丸く */
+}
+
+.intro-box h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.intro-box p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
 }
 
 /* ギャラリー */
@@ -159,7 +226,7 @@ h2 {
   background: radial-gradient(circle at 50% 50%, #fff 10%, #222 30%, #000 80%);
   top: 40%;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-  animation: blink 6s infinite ease-in-out;
+  animation: blink 3s infinite ease-in-out;
 }
 
 /* 左右の目の位置 */
@@ -171,3 +238,43 @@ h2 {
   0%, 90%, 100% { transform: scaleY(1); }
   95% { transform: scaleY(0.1); } /* 閉じる瞬間 */
 }
+
+/* --- フッターの問いかけボックス（不気味の谷のラスト） --- */
+.ending-question {
+  max-width: 750px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.ending-question h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+  color: #0ff;
+  text-shadow: 0 0 10px rgba(0,255,255,0.7);
+}
+
+.ending-question p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+
+/* スマホ用（幅600px以下） */
+@media (max-width: 600px) {
+  .nav .back-btn {
+    font-size: 0.8rem;     /* 文字を小さく */
+    padding: 0.2rem 0.5rem;/* ボタンを小さく */
+    right: 1rem;           /* 少し内側に寄せる */
+    top: 0.8rem;           /* 上に寄せる */
+  }
+
+  /* タイトルが大きい場合は少し小さくする */
+  .nav-title {
+    font-size: 1.2rem;
+  }
+}
+
