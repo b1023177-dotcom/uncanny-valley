@@ -292,6 +292,10 @@ h2 {
 }
 
 /* 左右の目の距離調整（必要なら） */
+.eye {
+  left: 50%;
+  transform: translateX(-50%);
+}
 .eye:first-child {
   transform: translateX(calc(-50% - 40px));
 }
@@ -356,17 +360,19 @@ h2 {
     max-width: none;
     margin-bottom: 1.5rem; /* 下に余白 */
   }
-  .eyes-background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* 目は absolute のままにする（←重要） */
+  .eye {
+    width: 60px;     /* スマホ用に少し小さくするのはOK */
+    height: 30px;
   }
 
-  .eye {
-    position: relative;   /* ← absolute を解除して中央揃えしやすく */
-    top: 0;
-    margin: 0 10px;       /* 目の間の距離 */
-    left: 0 !important;   /* ← 40%/55% を打ち消す */
+  /* 左右の距離だけ縮める */
+  .eye:first-child {
+    transform: translateX(calc(-50% - 25px));
+  }
+
+  .eye:last-child {
+    transform: translateX(calc(-50% + 25px));
   }
 }
 
