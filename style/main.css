@@ -330,6 +330,7 @@ h2 {
     width: 90%;        /* ← 画面幅の90%にして両端に余白を作る */
     max-width: none;   /* ← 固定700pxを解除 */
     padding: 1rem;     /* ← スマホ向けに余白調整 */
+    box-sizing: border-box;
   }
 }
 
