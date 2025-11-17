@@ -1,3 +1,4 @@
+/* ====== 基本設定 ====== */
 body {
   margin: 0;
   background-color: #000;
@@ -6,7 +7,7 @@ body {
   overflow-x: hidden;
 }
 
-/* 起動画面 */
+/* ====== 起動画面 ====== */
 .intro-animation {
   position: fixed;
   top: 0;
@@ -19,7 +20,7 @@ body {
   background-color: #000;
   z-index: 10;
   animation: fadeOut 1s ease forwards;
-  animation-delay: 3.5s; /* 3.5秒後に消える */
+  animation-delay: 3.5s; 
 }
 
 .intro-text {
@@ -70,7 +71,7 @@ body {
   animation-delay: 1s;
 }
 
-/* 文字のブレ（ノイズ） */
+/* ====== アニメーション ====== */
 @keyframes glitchMove {
   0% { transform: none; }
   20% { transform: skew(1deg, 0deg) translate(2px, 0); }
@@ -89,7 +90,6 @@ body {
   to { opacity: 0; visibility: hidden; }
 }
 
-/* グリッチの上下ノイズ */
 @keyframes glitchTop {
   0% { clip: rect(0, 9999px, 0, 0); }
   10% { clip: rect(10px, 9999px, 50px, 0); }
@@ -109,77 +109,59 @@ body {
   100% { clip: rect(0, 9999px, 0, 0); }
 }
 
-/* ナビゲーションのロゴ */
+/* ====== ナビゲーション ====== */
+.nav {
+  position: relative;
+  padding: 1rem 2rem;
+  background: transparent;
+  z-index: 5;
+}
+
 .nav .logo {
-  font-size: 2rem;   /* 文字サイズを大きく */
-  font-weight: bold; /* 太字に */
-  color: #fff;       /* 白色 */
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
   text-shadow: 
     0 0 5px #0ff,
     0 0 10px #0ff,
     0 0 20px #0ff,
     0 0 40px #0ff,
-    0 0 80px #0ff; /* ネオン風の光 */
+    0 0 80px #0ff;
 }
 
-/* === ナビゲーション === */
-.nav {
-  position: relative;
-  padding: 1rem 2rem;
-  background: transparent; /* 透明でもOK */
-  z-index: 5;
-}
-
-/* 右上に戻るボタンを配置 */
 .nav .back-btn {
-  position: absolute;    /* 絶対配置に */
-  top: 1rem;             /* ナビゲーション内の上からの位置 */
-  right: 1.5rem;         /* 右端からの位置 */
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1rem;
-  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  padding: 0.15rem 0.3rem;
   border: 1px solid #fff;
   border-radius: 5px;
-  background-color: rgba(0,0,0,0.4); /* 背景少し透過 */
+  background-color: rgba(0,0,0,0.4);
   transition: 0.3s;
 }
 
 .nav .back-btn:hover {
-  background-color: rgba(0,255,255,0.2); /* ホバー時に色を変える */
+  background-color: rgba(0,255,255,0.2);
   color: #0ff;
   box-shadow: 0 0 10px #0ff;
 }
 
-
-/* メインコンテンツ表示 */
-.hidden {
-  opacity: 0;
-  transition: opacity 1.5s ease;
-}
-.show {
-  opacity: 1;
+.nav-title {
+  font-size: 1.2rem;
 }
 
-/* 不気味の谷の紹介ボックス */
-.intro-box {
-  border: 2px solid #fff;       /* 白い四角枠 */
-  padding: 1.5rem 2rem;         /* 内側の余白 */
-  margin: 4rem auto;            /* 上下余白と中央寄せ */
-  max-width: 700px;             /* 横幅制限 */
-  background-color: rgba(0, 0, 0, 0.6); /* 半透明背景で目やノイズと馴染む */
-  border-radius: 12px;          /* 角を丸く */
-}
+/* ====== メインコンテンツ ====== */
+.hidden { opacity: 0; transition: opacity 1.5s ease; }
+.show { opacity: 1; }
 
-/* 展示目的ボックス */
-.exhibition-purpose {
-  /* 元のスタイルがあればここに */
-}
-
-/* --- 四角いボックス共通スマホ対応 --- */
+/* ====== 四角いボックス共通（紹介・展示目的・終了メッセージ） ====== */
 .intro-box,
-.exhibition-purpose {
+.exhibition-purpose,
+.ending-question {
   max-width: 700px;
   margin: 2rem auto;
   padding: 1.5rem 2rem;
@@ -187,32 +169,25 @@ body {
   background-color: rgba(0,0,0,0.6);
   border-radius: 12px;
   border: 2px solid #fff;
+  text-align: center;
 }
 
-/* --- スマホ用 --- */
-@media (max-width: 600px) {
-  .intro-box,
-  .exhibition-purpose {
-    width: 90%;
-    max-width: none;
-    padding: 1rem;
-  }
-}
-
-.intro-box h2 {
+.intro-box h2,
+.exhibition-purpose h2,
+.ending-question h2 {
   margin-top: 0;
   font-size: 1.8rem;
-  text-align: center;
   margin-bottom: 1rem;
 }
 
-.intro-box p {
+.intro-box p,
+.exhibition-purpose p,
+.ending-question p {
   font-size: 1.1rem;
   line-height: 1.6;
-  text-align: center;
 }
 
-/* ギャラリー */
+/* ====== ギャラリー ====== */
 .gallery {
   display: flex;
   gap: 2rem;
@@ -222,28 +197,27 @@ body {
   align-items: stretch;
 }
 
+.work h2 {
+  text-align: center !important;
+}
+
+
 .item {
-  display: flex;              /* 縦方向に積む */
-  flex-direction: column;     /* 項目を縦に並べる */
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  max-width: 250px;           /* 幅を画像に合わせる */
+  max-width: 250px;
 }
 
 .item img {
   width: 250px;
-  height: 250px;              /* ← 高さを固定 */
+  height: 250px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(255,255,255,0.2);
 }
 
-h2 {
-  text-align: center;
-  font-weight: 400;
-  margin-top: 2rem;
-}
-
-/* === 背景にある“目”のアニメーション === */
+/* ====== 背景の目 ====== */
 .eyes-background {
   position: fixed;
   top: 0;
@@ -263,77 +237,41 @@ h2 {
   background: radial-gradient(circle at 50% 50%, #fff 10%, #222 30%, #000 80%);
   top: 40%;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  transform: translateX(-50%) scaleY(1);
+  left: 50%;
   animation: blink 3s infinite ease-in-out;
 }
 
-/* 左右の目の位置 */
-.eye:first-child { left: 40%; }
-.eye:last-child { left: 55%; }
+/* 左右の目位置 */
+.eye:first-child { --shift: calc(-50% - 40px); }
+.eye:last-child  { --shift: calc(-50% + 40px); }
 
-/* まばたきアニメーション */
+/* まばたきアニメーション（左右両目対応） */
 @keyframes blink {
-  0%, 90%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.1); } /* 閉じる瞬間 */
+  0%, 90%, 100% { transform: translateX(var(--shift)) scaleY(1); }
+  95% { transform: translateX(var(--shift)) scaleY(0.1); }
 }
 
-/* --- フッターの問いかけボックス（不気味の谷のラスト） --- */
-.ending-question {
-  max-width: 750px;
-  margin: 3rem auto;
-  padding: 2rem;
-  border: 2px solid #fff;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.6);
-  text-align: center;
-}
-
-.ending-question h2 {
-  font-size: 1.7rem;
-  margin-bottom: 1rem;
-  color: #0ff;
-  text-shadow: 0 0 10px rgba(0,255,255,0.7);
-}
-
-.ending-question p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-
-/* スマホ用（幅600px以下） */
-@media (max-width: 600px) {
-  .nav .back-btn {
-    font-size: 0.8rem;     /* 文字を小さく */
-    padding: 0.2rem 0.5rem;/* ボタンを小さく */
-    right: 1rem;           /* 少し内側に寄せる */
-    top: 0.8rem;           /* 上に寄せる */
-  }
-
-  /* タイトルが大きい場合は少し小さくする */
-  .nav-title {
-    font-size: 1.2rem;
-  }
-}
-
-/* === スマホで背景の目が中央からずれる問題を修正 === */
+/* ====== スマホ対応 ====== */
 @media screen and (max-width: 600px) {
-  .item {
-    width: 90%;          /* 画面幅に合わせる */
+  .intro-box,
+  .exhibition-purpose,
+  .ending-question {
+    width: 90%;
     max-width: none;
-    margin-bottom: 1.5rem; /* 下に余白 */
+    padding: 1rem;
   }
-  .eyes-background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .item {
+    width: 90%;
+    max-width: none;
+    margin-bottom: 1.5rem;
   }
 
   .eye {
-    position: relative;   /* ← absolute を解除して中央揃えしやすく */
-    top: 0;
-    margin: 0 10px;       /* 目の間の距離 */
-    left: 0 !important;   /* ← 40%/55% を打ち消す */
+    width: 60px;
+    height: 30px;
   }
+  .eye:first-child { --shift: calc(-50% - 25px); }
+  .eye:last-child  { --shift: calc(-50% + 25px); }
 }
-
-
