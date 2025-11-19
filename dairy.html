@@ -109,6 +109,71 @@
             </div>
         </section>
 
+        <!-- 展示写真ギャラリー: 各テーマごとに1枚想定。img を挿入して使ってください -->
+        <section id="photos" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">展示写真</h2>
+                    <p class="section-subtitle">各展示作品の様子を写真で紹介します（画像クリックで拡大）</p>
+                </div>
+
+                <!-- 教室の座席（1枚） -->
+                <div class="gallery-group">
+                    <h3 class="gallery-title">教室の座席</h3>
+                    <div class="photo-grid">
+                        <figure class="photo-card">
+                            <img src="images/room.JPG" alt="教室の全景（座席配置）" loading="lazy">
+                            <figcaption class="photo-caption">教室の全景（座席配置）</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- ロッカーの位置（1枚） -->
+                <div class="gallery-group">
+                    <h3 class="gallery-title">ロッカーの位置</h3>
+                    <div class="photo-grid">
+                        <figure class="photo-card">
+                            <img src="images/rokka.JPG" alt="ロッカーの並び" loading="lazy">
+                            <figcaption class="photo-caption">ロッカーの並び</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- 傘立ての場所（1枚） -->
+                <div class="gallery-group">
+                    <h3 class="gallery-title">傘立ての場所</h3>
+                    <div class="photo-grid">
+                        <figure class="photo-card">
+                            <img src="images/kasa.JPG" alt="傘立ての設置場所" loading="lazy">
+                            <figcaption class="photo-caption">傘立ての設置場所</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- アイスの取り方（1枚） -->
+                <div class="gallery-group">
+                    <h3 class="gallery-title">アイスの取り方</h3>
+                    <div class="photo-grid">
+                        <figure class="photo-card">
+                            <img src="images/pino.JPG" alt="アイスのパッケージ（例）" loading="lazy">
+                            <figcaption class="photo-caption">アイスのパッケージ（例）</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- ノートの色（1枚） -->
+                <div class="gallery-group">
+                    <h3 class="gallery-title">ノートの色</h3>
+                    <div class="photo-grid">
+                        <figure class="photo-card">
+                            <img src="images/note.JPG" alt="ノートの色の例" loading="lazy">
+                            <figcaption class="photo-caption">ノートの色の例</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="section alt">
             <div class="container">
                 <div class="section-header">
@@ -197,6 +262,13 @@
     </div>
 
     <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <!-- ライトボックス（画像拡大） -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button class="lightbox-close" aria-label="閉じる">×</button>
+        <img class="lightbox-image" alt="">
+        <p class="lightbox-caption"></p>
+    </div>
 
     <script src="script/dairy.js"></script>
 </body>
