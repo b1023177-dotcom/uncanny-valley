@@ -265,6 +265,13 @@ html {
   text-align: center;
 }
 
+.photo img {
+  width: 300px;
+  max-width: 90%;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  object-fit: cover;
+}
 /* ====== 写真の並び（PCは横／スマホは縦） ====== */
 .photos {
   display: flex;
@@ -275,7 +282,7 @@ html {
 }
 
 /* ====== 写真スタイル ====== */
-.photos img {
+.photo img {
   width: 300px;
   max-width: 90%;
   border-radius: 10px;
