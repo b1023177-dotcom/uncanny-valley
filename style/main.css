@@ -1,4 +1,3 @@
-
 /* ====== 基本設定 ====== */
 body {
   margin: 0;
@@ -88,29 +87,27 @@ img {
 
 /* 展示写真の統一サイズ */
 .photo-gallery img,
-/* ====== 展示写真・作品イラスト共通サイズ ====== */
 .photos img,
 .top-photos img,
 .item img {
-  width: 250px;       /* 作品展示イラスト・展示写真の幅を統一 */
-  height: 250px;      /* 高さも固定 */
-  object-fit: cover;  /* 枠いっぱいに表示 */
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
   border-radius: 12px;
   border: 2px solid #fff;
   box-shadow: 0 0 15px rgba(255,255,255,0.2);
   margin: 0.5rem;
 }
 
-/* ====== 写真・作品イラストを横並びに ====== */
+/* 写真・作品イラストを横並びに */
 .photos,
 .top-photos,
-/* 作品展示のコンテナ（flex のまま） */
 .work {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  align-items: stretch; /* 高さを揃える */
+  align-items: stretch;
   padding: 2rem;
 }
 
@@ -118,10 +115,10 @@ img {
 .item {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* 中央揃え */
-  text-align: center;   /* テキスト中央揃え */
-  width: 250px;         /* 画像サイズに固定 */
-  flex: 1 1 250px;      /* 最小250px、必要に応じて拡張 */
+  align-items: center;
+  text-align: center;
+  width: 250px;
+  flex: 1 1 250px;
   box-sizing: border-box;
 }
 
@@ -152,39 +149,56 @@ img {
   .item {
     width: 250px;
   }
-}
 
-@media (max-width: 600px) {
+  /* 写真作品の説明文の余白調整 */
   .photo-section p {
-    text-align: center;    /* 中央揃え */
-    padding-left: 1rem;    /* 左に余白 */
-    padding-right: 1rem;   /* 右に余白 */
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
   }
-}
 
-
-
-/* ====== スマホ用 ====== */
-@media (max-width: 600px) {
   .photos img,
   .top-photos img,
   .item img,
   .photos video.exhibit-video,
   .photos audio {
-    width: 250px;      /* 幅固定 */
-    height: 250px;     /* 高さ固定 */
+    width: 250px;
+    height: 250px;
   }
 
   .glitch {
     font-size: 2.6em;
     line-height: 1.1;
-    transform-origin: left;
-    display: block;
-    text-align: left;
+    transform-origin: center;
+    display: inline-block;
   }
-  .photo-section p {
+  .glitch::before { left: 1px; text-shadow: -1px 0 red; }
+  .glitch::after  { left: -1px; text-shadow: -1px 0 blue; }
+
+  .subtitle-english {
+    font-size: 1.05em;
+    letter-spacing: 0.06em;
+  }
+
+  .nav .logo {
+    font-size: 1.6rem;
     text-align: center;
+    display: block;
   }
+  .nav { padding-left: 1rem; padding-right: 1rem; }
+
+  /* 写真タイトル */
+  .photo-gallery h2 { font-size: 1.7rem; }
+  .photo-section h3 { font-size: 1.3rem; }
+
+  /* アイテムサイズ調整 */
+  .item { width: 90%; max-width: none; margin-bottom: 1.5rem; }
+
+  /* 背景の目 */
+  .eye { width: 60px; height: 30px; }
+  .eye:first-child { --shift: calc(-50% - 25px); }
+  .eye:last-child  { --shift: calc(-50% + 25px); }
 }
 
 /* ====== アニメーション ====== */
@@ -224,250 +238,3 @@ img {
   75% { clip: rect(90px, 9999px, 120px, 0); }
   100% { clip: rect(0, 9999px, 0, 0); }
 }
-
-/* ====== ナビゲーション ====== */
-.nav {
-  position: relative;
-  padding: 1rem 2rem;
-  background: transparent;
-  z-index: 5;
-}
-
-.nav .logo {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 
-    0 0 5px #0ff,
-    0 0 10px #0ff,
-    0 0 20px #0ff,
-    0 0 40px #0ff,
-    0 0 80px #0ff;
-}
-
-.nav .back-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.8rem;
-  padding: 0.15rem 0.3rem;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  background-color: rgba(0,0,0,0.4);
-  transition: 0.3s;
-}
-
-.nav .back-btn:hover {
-  background-color: rgba(0,255,255,0.2);
-  color: #0ff;
-  box-shadow: 0 0 10px #0ff;
-}
-
-.nav-title {
-  font-size: 1.2rem;
-}
-
-/* ====== メインコンテンツ ====== */
-.hidden { opacity: 0; transition: opacity 1.5s ease; }
-.show { opacity: 1; }
-
-/* ====== 四角いボックス共通 ====== */
-.intro-box,
-.exhibition-purpose,
-.ending-question {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 1.5rem 2rem;
-  box-sizing: border-box;
-  background-color: rgba(0,0,0,0.6);
-  border-radius: 12px;
-  border: 2px solid #fff;
-  text-align: center;
-}
-
-.intro-box h2 {
-  margin-top: 0;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.intro-box p,
-.exhibition-purpose p,
-.ending-question p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* ====== ギャラリー ====== */
-.gallery {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 2rem;
-  align-items: stretch;
-}
-
-.work h2 {
-  text-align: center !important;
-}
-
-/* ====== 展示写真タイトル ====== */
-.photo-gallery h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin: 3rem 0 2rem;
-}
-
-/* ====== 各項目のタイトル ====== */
-.photo-section h3 {
-  font-size: 1.5rem;
-  margin: 1rem 0;
-  text-align: center;
-}
-
-/* ====== 写真の並び ====== */
-.photos,
-.top-photos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-/* ====== 写真スタイル ====== */
-.photo img,
-.photos img,
-.top-photos img {
-  width: 300px;
-  max-width: 90%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid #fff;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
-}
-
-/* ====== 動画・音声プレイヤーのスタイル ====== */
-.photos video.exhibit-video {
-  width: 300px;
-  height: 250px;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
-}
-
-.photos audio {
-  width: 300px;
-  margin: 0;
-  display: block;
-}
-
-/* ====== 背景の目 ====== */
-.eyes-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.eye {
-  position: absolute;
-  width: 80px;
-  height: 40px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 50%, #fff 10%, #222 30%, #000 80%);
-  top: 40%;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-  transform: translateX(-50%) scaleY(1);
-  left: 50%;
-  animation: blink 3s infinite ease-in-out;
-}
-
-.eye:first-child { --shift: calc(-50% - 40px); }
-.eye:last-child  { --shift: calc(-50% + 40px); }
-
-@keyframes blink {
-  0%, 90%, 100% { transform: translateX(var(--shift)) scaleY(1); }
-  95% { transform: translateX(var(--shift)) scaleY(0.1); }
-}
-
-/* ====== スマホ対応 ====== */
-@media (max-width: 600px) {
-
-  /* 起動画面・タイトル調整 */
-  .intro-box,
-  .exhibition-purpose,
-  .ending-question {
-    width: 90%;
-    max-width: none;
-    padding: 1rem;
-  }
-  .intro-text {
-    width: 100%;
-    padding: 0 16px;
-    text-align: center;
-  }
-  .glitch {
-    font-size: 2.6em;
-    line-height: 1.1;
-    transform-origin: center;
-    display: inline-block;
-  }
-  .glitch::before { left: 1px; text-shadow: -1px 0 red; }
-  .glitch::after  { left: -1px; text-shadow: -1px 0 blue; }
-  .subtitle-english {
-    font-size: 1.05em;
-    letter-spacing: 0.06em;
-  }
-  .nav .logo {
-    font-size: 1.6rem;
-    text-align: center;
-    display: block;
-  }
-  .nav { padding-left: 1rem; padding-right: 1rem; }
-
-  /* ギャラリー・写真の幅を作品展示イラストに揃える */
-  .photos img,
-  .top-photos img {
-    width: 250px;
-    max-width: 90%;
-    height: 250px;
-    object-fit: cover;
-  }
-
-  .photos video.exhibit-video {
-    width: 250px;
-    height: 250px;
-  }
-
-  .photos audio {
-    width: 250px;
-  }
-
-  /* 写真タイトル */
-  .photo-gallery h2 { font-size: 1.7rem; }
-  .photo-section h3 { font-size: 1.3rem; }
-
-  /* アイテムサイズ調整 */
-  .item { width: 90%; max-width: none; margin-bottom: 1.5rem; }
-
-  /* 背景の目 */
-  .eye { width: 60px; height: 30px; }
-  .eye:first-child { --shift: calc(-50% - 25px); }
-  .eye:last-child  { --shift: calc(-50% + 25px); }
-}
-
-/* ====== 展示作品の説明文を中央揃え ====== */
-.photo-section p {
-  text-align: center;
-}
-
