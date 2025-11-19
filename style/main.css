@@ -448,3 +448,12 @@ img {
   margin: 0;
   display: block;
 }
+
+.photos video.exhibit-video {
+  width: 100%;        /* 横幅を画像と同じに */
+  height: auto;       /* 高さを自動調整 */
+  border-radius: 12px; /* 画像と同じ角丸 */
+  object-fit: cover;   /* 画像と同じ見え方に */
+  box-shadow: 0 0 15px rgba(255,255,255,0.2); /* 画像と同じ影 */
+}
+
