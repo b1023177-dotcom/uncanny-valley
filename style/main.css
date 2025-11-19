@@ -297,6 +297,31 @@ html {
   }
 }
 
+/* ====== 上部に並べる写真 ====== */
+.top-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.top-photos img {
+  width: 320px;
+  max-width: 90%;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  object-fit: cover;
+}
+
+/* ====== スマホ用 ====== */
+@media (max-width: 600px) {
+  .top-photos img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 
 .work h2 {
   text-align: center !important;
