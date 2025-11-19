@@ -440,3 +440,11 @@ img {
   .eye:first-child { --shift: calc(-50% - 25px); }
   .eye:last-child  { --shift: calc(-50% + 25px); }
 }
+
+
+/* 音声プレイヤーの幅を画像と揃える */
+.photos audio {
+  width: 100%;
+  margin: 0;
+  display: block;
+}
